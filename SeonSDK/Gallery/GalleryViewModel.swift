@@ -5,10 +5,9 @@
 //  Created by Amit on 17.09.24.
 //
 
-import UIKit.UIImage
-
 class GalleryViewModel: ObservableObject {
-    @Published var photos: [UIImage] = []
+    
+    @Published var photos: [Photo] = []
     private let photoStorageService = PhotoStorageService()
 
     init() {
@@ -16,7 +15,8 @@ class GalleryViewModel: ObservableObject {
     }
 
     func loadPhotos() {
-        self.photos = photoStorageService.loadPhotos()
+        let uiImages = photoStorageService.loadPhotos()
+        self.photos = uiImages.map { Photo(image: $0) }  // Wrap UIImages in Photo
     }
     
     func deletePhoto(at index: Int) {

@@ -23,6 +23,8 @@
 		28D733902C9A01370017DEED /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7338F2C9A01370017DEED /* CameraViewModel.swift */; };
 		28D733932C9A029A0017DEED /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733922C9A029A0017DEED /* GalleryViewModel.swift */; };
 		28D733952C9A02C10017DEED /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733942C9A02C10017DEED /* GalleryView.swift */; };
+		28D733BD2C9A33190017DEED /* FullScreenPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733BC2C9A33190017DEED /* FullScreenPhotoView.swift */; };
+		28D733BF2C9A338F0017DEED /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733BE2C9A338F0017DEED /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		28D7338F2C9A01370017DEED /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		28D733922C9A029A0017DEED /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		28D733942C9A02C10017DEED /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		28D733BC2C9A33190017DEED /* FullScreenPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoView.swift; sourceTree = "<group>"; };
+		28D733BE2C9A338F0017DEED /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 			children = (
 				28D733922C9A029A0017DEED /* GalleryViewModel.swift */,
 				28D733942C9A02C10017DEED /* GalleryView.swift */,
+				28D733BC2C9A33190017DEED /* FullScreenPhotoView.swift */,
+				28D733BE2C9A338F0017DEED /* Photo.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -268,8 +274,10 @@
 				28D7338D2C99ECF80017DEED /* CameraPreviewView.swift in Sources */,
 				28D733952C9A02C10017DEED /* GalleryView.swift in Sources */,
 				28D732FA2C9595F10017DEED /* SeonSDK.docc in Sources */,
+				28D733BD2C9A33190017DEED /* FullScreenPhotoView.swift in Sources */,
 				28D7338B2C99ECB70017DEED /* CameraView.swift in Sources */,
 				28D733192C96DEBF0017DEED /* AuthService.swift in Sources */,
+				28D733BF2C9A338F0017DEED /* Photo.swift in Sources */,
 				28D7331D2C96E0010017DEED /* PhotoStorageService.swift in Sources */,
 				28D733902C9A01370017DEED /* CameraViewModel.swift in Sources */,
 				28D733172C96DEA40017DEED /* AuthServiceProvider.swift in Sources */,

@@ -14,7 +14,7 @@ public struct CameraView: View {
     public init(onCapture: ((UIImage) -> Void)?) {
         self.onCapture = onCapture
     }
-    
+
     public var body: some View {
         ZStack {
             // Camera preview
@@ -58,7 +58,7 @@ public struct CameraView: View {
                 }
                 Spacer()
 
-                // Capture button at the bottom
+                // Capture button at the bottom (circular style)
                 Button(action: {
                     viewModel.capturePhoto { result in
                         switch result {
@@ -70,13 +70,18 @@ public struct CameraView: View {
                         }
                     }
                 }) {
-                    Text("Capture Photo")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(viewModel.isCameraReady ? Color.blue : Color.gray)
-                        .cornerRadius(10)
+                    // Circular button styling
+                    ZStack {
+                        Circle()
+                            .fill(Color.white.opacity(0.6)) // Inner circle, semi-transparent
+                            .frame(width: 65, height: 65)
+
+                        Circle()
+                            .stroke(Color.white, lineWidth: 6) // Outer circle
+                            .frame(width: 75, height: 75)
+                    }
                 }
-                .padding()
+                .padding(.bottom, 40)
                 .disabled(!viewModel.isCameraReady)
             }
         }
