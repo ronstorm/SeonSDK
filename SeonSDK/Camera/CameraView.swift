@@ -11,7 +11,6 @@ public struct CameraView: View {
     @StateObject public var viewModel = CameraViewModel()
     public var onCapture: ((UIImage) -> Void)?
 
-    // Dismiss for iOS 15+ using the environment
     @Environment(\.dismiss) private var dismiss
 
     public init(onCapture: ((UIImage) -> Void)?) {
@@ -68,15 +67,7 @@ public struct CameraView: View {
 
                     // Capture button in the center
                     Button(action: {
-                        viewModel.capturePhoto { result in
-                            switch result {
-                            case .success(let image):
-                                onCapture?(image)
-                            case .failure(let error):
-                                viewModel.errorMessage = error.localizedDescription
-                                viewModel.showError = true
-                            }
-                        }
+                        viewModel.capturePhoto()  // Capture photo via ViewModel
                     }) {
                         // Circular button styling
                         ZStack {
@@ -111,6 +102,11 @@ public struct CameraView: View {
         }
         .alert(isPresented: $viewModel.showError) {
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage), dismissButton: .default(Text("OK")))
+        }
+        .onChange(of: viewModel.capturedImage) { image in
+            if let image = image {
+                onCapture?(image)  // Pass the captured image to the parent view
+            }
         }
     }
 }

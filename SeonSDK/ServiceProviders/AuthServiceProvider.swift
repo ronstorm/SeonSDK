@@ -5,8 +5,12 @@
 //  Created by Amit on 15.09.24.
 //
 
-import Foundation
+import Combine
 
 public protocol AuthServiceProvider {
-    func authenticate() async throws -> Bool
+    func authenticate() -> AnyPublisher<Bool, AuthServiceError>
+}
+
+public enum AuthServiceError: Error, LocalizedError {
+    
 }

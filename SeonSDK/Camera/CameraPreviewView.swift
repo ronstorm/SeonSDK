@@ -9,7 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct CameraPreviewView: UIViewRepresentable {
-    var cameraService: CameraService
+    let cameraService: CameraServiceProvider
 
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
