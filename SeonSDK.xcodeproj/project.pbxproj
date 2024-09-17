@@ -11,6 +11,18 @@
 		28D733002C9595F20017DEED /* SeonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D732F52C9595F10017DEED /* SeonSDK.framework */; };
 		28D733052C9595F20017DEED /* SeonSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733042C9595F20017DEED /* SeonSDKTests.swift */; };
 		28D733062C9595F20017DEED /* SeonSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D732F82C9595F10017DEED /* SeonSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28D733112C96DD9E0017DEED /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733102C96DD9E0017DEED /* CameraService.swift */; };
+		28D733152C96DE6C0017DEED /* CameraServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733142C96DE6C0017DEED /* CameraServiceProvider.swift */; };
+		28D733172C96DEA40017DEED /* AuthServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733162C96DEA40017DEED /* AuthServiceProvider.swift */; };
+		28D733192C96DEBF0017DEED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733182C96DEBF0017DEED /* AuthService.swift */; };
+		28D7331B2C96DFCE0017DEED /* PhotoStorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7331A2C96DFCE0017DEED /* PhotoStorageProvider.swift */; };
+		28D7331D2C96E0010017DEED /* PhotoStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7331C2C96E0010017DEED /* PhotoStorageService.swift */; };
+		28D7331F2C98A8920017DEED /* PhotoSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7331E2C98A8920017DEED /* PhotoSDK.swift */; };
+		28D7338B2C99ECB70017DEED /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7338A2C99ECB70017DEED /* CameraView.swift */; };
+		28D7338D2C99ECF80017DEED /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7338C2C99ECF80017DEED /* CameraPreviewView.swift */; };
+		28D733902C9A01370017DEED /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7338F2C9A01370017DEED /* CameraViewModel.swift */; };
+		28D733932C9A029A0017DEED /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733922C9A029A0017DEED /* GalleryViewModel.swift */; };
+		28D733952C9A02C10017DEED /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D733942C9A02C10017DEED /* GalleryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +41,18 @@
 		28D732F92C9595F10017DEED /* SeonSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SeonSDK.docc; sourceTree = "<group>"; };
 		28D732FF2C9595F20017DEED /* SeonSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeonSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D733042C9595F20017DEED /* SeonSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeonSDKTests.swift; sourceTree = "<group>"; };
+		28D733102C96DD9E0017DEED /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		28D733142C96DE6C0017DEED /* CameraServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraServiceProvider.swift; sourceTree = "<group>"; };
+		28D733162C96DEA40017DEED /* AuthServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProvider.swift; sourceTree = "<group>"; };
+		28D733182C96DEBF0017DEED /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		28D7331A2C96DFCE0017DEED /* PhotoStorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageProvider.swift; sourceTree = "<group>"; };
+		28D7331C2C96E0010017DEED /* PhotoStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageService.swift; sourceTree = "<group>"; };
+		28D7331E2C98A8920017DEED /* PhotoSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSDK.swift; sourceTree = "<group>"; };
+		28D7338A2C99ECB70017DEED /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		28D7338C2C99ECF80017DEED /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		28D7338F2C9A01370017DEED /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		28D733922C9A029A0017DEED /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		28D733942C9A02C10017DEED /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +95,13 @@
 		28D732F72C9595F10017DEED /* SeonSDK */ = {
 			isa = PBXGroup;
 			children = (
+				28D733912C9A02570017DEED /* Gallery */,
+				28D7338E2C99FEEE0017DEED /* Camera */,
+				28D733132C96DE560017DEED /* ServiceProviders */,
+				28D733122C96DE270017DEED /* Service */,
 				28D732F82C9595F10017DEED /* SeonSDK.h */,
 				28D732F92C9595F10017DEED /* SeonSDK.docc */,
+				28D7331E2C98A8920017DEED /* PhotoSDK.swift */,
 			);
 			path = SeonSDK;
 			sourceTree = "<group>";
@@ -83,6 +112,45 @@
 				28D733042C9595F20017DEED /* SeonSDKTests.swift */,
 			);
 			path = SeonSDKTests;
+			sourceTree = "<group>";
+		};
+		28D733122C96DE270017DEED /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				28D733102C96DD9E0017DEED /* CameraService.swift */,
+				28D733182C96DEBF0017DEED /* AuthService.swift */,
+				28D7331C2C96E0010017DEED /* PhotoStorageService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		28D733132C96DE560017DEED /* ServiceProviders */ = {
+			isa = PBXGroup;
+			children = (
+				28D733142C96DE6C0017DEED /* CameraServiceProvider.swift */,
+				28D733162C96DEA40017DEED /* AuthServiceProvider.swift */,
+				28D7331A2C96DFCE0017DEED /* PhotoStorageProvider.swift */,
+			);
+			path = ServiceProviders;
+			sourceTree = "<group>";
+		};
+		28D7338E2C99FEEE0017DEED /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				28D7338A2C99ECB70017DEED /* CameraView.swift */,
+				28D7338C2C99ECF80017DEED /* CameraPreviewView.swift */,
+				28D7338F2C9A01370017DEED /* CameraViewModel.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		28D733912C9A02570017DEED /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				28D733922C9A029A0017DEED /* GalleryViewModel.swift */,
+				28D733942C9A02C10017DEED /* GalleryView.swift */,
+			);
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +262,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28D7331B2C96DFCE0017DEED /* PhotoStorageProvider.swift in Sources */,
+				28D733932C9A029A0017DEED /* GalleryViewModel.swift in Sources */,
+				28D733152C96DE6C0017DEED /* CameraServiceProvider.swift in Sources */,
+				28D7338D2C99ECF80017DEED /* CameraPreviewView.swift in Sources */,
+				28D733952C9A02C10017DEED /* GalleryView.swift in Sources */,
 				28D732FA2C9595F10017DEED /* SeonSDK.docc in Sources */,
+				28D7338B2C99ECB70017DEED /* CameraView.swift in Sources */,
+				28D733192C96DEBF0017DEED /* AuthService.swift in Sources */,
+				28D7331D2C96E0010017DEED /* PhotoStorageService.swift in Sources */,
+				28D733902C9A01370017DEED /* CameraViewModel.swift in Sources */,
+				28D733172C96DEA40017DEED /* AuthServiceProvider.swift in Sources */,
+				28D733112C96DD9E0017DEED /* CameraService.swift in Sources */,
+				28D7331F2C98A8920017DEED /* PhotoSDK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +438,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +474,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,6 +497,7 @@
 		28D7330D2C9595F20017DEED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4EVUT3M4J2;
@@ -433,6 +514,7 @@
 		28D7330E2C9595F20017DEED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4EVUT3M4J2;
