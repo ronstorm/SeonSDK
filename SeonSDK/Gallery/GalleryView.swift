@@ -54,40 +54,17 @@ struct GalleryView: View {
                                     selectedPhoto = photo  // Select the photo for modal presentation
                                 }
                                 .contextMenu {
-                                    if #available(iOS 15.0, *) {
-                                        // iOS 15 and later: Use Button with role for destructive and cancel actions
-                                        Button(role: .destructive) {
-                                            withAnimation {
-                                                if let index = viewModel.photos.firstIndex(where: { $0.id == photo.id }) {
-                                                    viewModel.deletePhoto(at: index)
-                                                }
-                                            }
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                        }
-                                        
-                                        Button("Cancel", role: .cancel) {}
-                                        
-                                    } else {
-                                        // iOS 14 and earlier: Use regular Button for Delete
-                                        Button(action: {
-                                            withAnimation {
-                                                if let index = viewModel.photos.firstIndex(where: { $0.id == photo.id }) {
-                                                    viewModel.deletePhoto(at: index)
-                                                }
-                                            }
-                                        }) {
-                                            HStack {
-                                                Text("Delete")
-                                                Image(systemName: "trash")
+                                    Button(role: .destructive) {
+                                        withAnimation {
+                                            if let index = viewModel.photos.firstIndex(where: { $0.id == photo.id }) {
+                                                viewModel.deletePhoto(at: index)
                                             }
                                         }
-                                        
-                                        // iOS 14 and earlier: Regular Button for Cancel (no cancel role)
-                                        Button(action: {}) {
-                                            Text("Cancel")
-                                        }
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
                                     }
+                                    
+                                    Button("Cancel", role: .cancel) {}
                                 }
 
                         }
