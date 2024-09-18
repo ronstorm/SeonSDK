@@ -9,26 +9,35 @@ import SwiftUI
 import Combine
 
 public class PhotoSDK {
-    private let photoStorageService = PhotoStorageService()
+    private let photoStorageService: PhotoStorageProvider
     private let authService: AuthServiceProvider
     private var cancellables = Set<AnyCancellable>()
 
-    public init(authService: AuthServiceProvider = AuthService()) {
+    public init(authService: AuthServiceProvider = AuthService(), 
+                photoStorageService: PhotoStorageProvider = PhotoStorageService()) {
         self.authService = authService
+        self.photoStorageService = photoStorageService
     }
 
     /// Method to take a photo and store it locally.
     /// This function returns a SwiftUI view for capturing photos.
     public func takePhoto(completion: @escaping (Result<UIImage, Error>) -> Void) -> some View {
         return CameraView(onCapture: { image in
-            // Save photo locally
-            self.photoStorageService.savePhoto(image) { success in
-                if success {
+            // Save the captured photo using Combine-based photo storage
+            self.photoStorageService.savePhoto(image)
+                .sink { saveCompletion in
+                    switch saveCompletion {
+                    case .failure(let error):
+                        // Handle save failure
+                        completion(.failure(error))
+                    case .finished:
+                        break
+                    }
+                } receiveValue: {
+                    // Handle save success
                     completion(.success(image))
-                } else {
-                    completion(.failure(NSError(domain: "PhotoSDK", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to save photo."])))
                 }
-            }
+                .store(in: &self.cancellables)
         })
     }
 
