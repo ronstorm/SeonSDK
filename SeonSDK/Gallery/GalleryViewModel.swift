@@ -19,6 +19,12 @@ class GalleryViewModel: ObservableObject {
     /// Published property to display error messages if an operation fails.
     @Published var errorMessage: String? = nil
     
+    /// Controls error alert display
+    @Published var showError: Bool = false
+    
+    /// Controls the selected photo for full-screen presentation
+    @Published var selectedPhoto: Photo? = nil
+    
     /// The service responsible for managing photo storage operations (save, load, delete).
     private let photoStorageService: PhotoStorageProvider
     
@@ -42,6 +48,7 @@ class GalleryViewModel: ObservableObject {
                     // Sets an error message if loading photos fails.
                     DispatchQueue.main.async {
                         self.errorMessage = error.localizedDescription
+                        self.showError = true
                     }
                 case .finished:
                     break
@@ -66,6 +73,7 @@ class GalleryViewModel: ObservableObject {
                     // Sets an error message if deleting the photo fails.
                     DispatchQueue.main.async {
                         self.errorMessage = error.localizedDescription
+                        self.showError = true
                     }
                 case .finished:
                     break
@@ -77,5 +85,15 @@ class GalleryViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables) // Stores the subscription to manage its lifecycle.
+    }
+    
+    /// Select a photo for full-screen viewing
+    func selectPhoto(_ photo: Photo) {
+        selectedPhoto = photo
+    }
+    
+    /// Clear the selected photo
+    func clearSelectedPhoto() {
+        selectedPhoto = nil
     }
 }

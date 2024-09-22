@@ -14,9 +14,6 @@ struct GalleryView: View {
     /// The view model that manages the state and logic for the gallery.
     @StateObject var viewModel = GalleryViewModel()
     
-    /// Controls the full-screen presentation of a selected photo.
-    @State private var selectedPhoto: Photo? = nil
-    
     /// Dynamically calculates the number of columns for the grid based on screen width.
     /// Ensures that the grid layout adapts to different screen sizes.
     private var columns: [GridItem] {
@@ -63,7 +60,7 @@ struct GalleryView: View {
                                 .cornerRadius(10)
                                 .clipped() // Ensures the image does not overflow the bounds.
                                 .onTapGesture {
-                                    selectedPhoto = photo // Sets the selected photo for full-screen presentation.
+                                    viewModel.selectPhoto(photo) // Select the photo for modal presentation
                                 }
                                 .contextMenu {
                                     // Context menu with options like delete and cancel.
@@ -97,9 +94,23 @@ struct GalleryView: View {
         .onAppear {
             viewModel.loadPhotos() // Loads photos when the view appears.
         }
-        .sheet(item: $selectedPhoto) { photo in
+        .sheet(item: $viewModel.selectedPhoto) { photo in
             // Presents the selected photo in full-screen when tapped.
             FullScreenPhotoView(photo: photo.image)
+                .onDisappear {
+                    // Clear the selection when the full-screen view is dismissed
+                    viewModel.clearSelectedPhoto()
+                }
+        }
+        // Error handling: Show alert when there's an error message
+        .alert(isPresented: $viewModel.showError) {
+            Alert(
+                title: Text("Error"),
+                message: Text(viewModel.errorMessage ?? "An unknown error occurred."),
+                dismissButton: .default(Text("OK")) {
+                    viewModel.showError = false
+                }
+            )
         }
     }
 }
