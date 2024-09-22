@@ -8,19 +8,34 @@
 import SwiftUI
 import Combine
 
+/// `PhotoSDK` is the main facade class for the PhotoSDK framework.
+/// It provides a simple interface to the outside world with methods to take photos,
+/// access previously taken photos, and authenticate the user using biometrics.
 public class PhotoSDK {
+    
+    /// Service responsible for handling photo storage operations such as saving and retrieving photos.
     private let photoStorageService: PhotoStorageProvider
+    
+    /// Service responsible for handling user authentication, particularly biometric authentication.
     private let authService: AuthServiceProvider
+    
+    ///
     private var cancellables = Set<AnyCancellable>()
-
-    public init(authService: AuthServiceProvider = AuthService(), 
+    
+    /// Initializes the `PhotoSDK` with the required services for authentication and photo storage.
+    /// - Parameters:
+    ///   - authService: A provider for authentication, defaulting to `AuthService`.
+    ///   - photoStorageService: A provider for photo storage, defaulting to `PhotoStorageService`.
+    public init(authService: AuthServiceProvider = AuthService(),
                 photoStorageService: PhotoStorageProvider = PhotoStorageService()) {
         self.authService = authService
         self.photoStorageService = photoStorageService
     }
-
-    /// Method to take a photo and store it locally.
-    /// This function returns a SwiftUI view for capturing photos.
+    
+    /// Provides a SwiftUI view for taking a photo using the device's camera.
+    /// Captures the photo and stores it locally using the `PhotoStorageService`.
+    /// - Parameter completion: A closure called upon photo capture with either the captured image or an error.
+    /// - Returns: A SwiftUI `View` for capturing photos, typically utilizing the front-facing camera.
     public func takePhoto(completion: @escaping (Result<UIImage, Error>) -> Void) -> some View {
         return CameraView(onCapture: { image in
             // Save the captured photo using Combine-based photo storage
@@ -28,21 +43,24 @@ public class PhotoSDK {
                 .sink { saveCompletion in
                     switch saveCompletion {
                     case .failure(let error):
-                        // Handle save failure
+                        // If saving fails, pass the error back to the caller.
                         completion(.failure(error))
                     case .finished:
                         break
                     }
                 } receiveValue: {
-                    // Handle save success
+                    // If saving succeeds, pass the captured image back to the caller.
                     completion(.success(image))
                 }
                 .store(in: &self.cancellables)
         })
     }
-
-    /// Method to authenticate the user via biometrics and return a GalleryView on success.
+    
+    /// Authenticates the user via biometrics and, on success, provides access to the gallery view.
+    /// - Parameter onAuthenticated: A closure that returns either the gallery view or an error after authentication.
     public func accessPhotos(onAuthenticated: @escaping (Result<AnyView, Error>) -> Void) {
+        
+        // Initiates the biometric authentication process via the authentication service.
         authService.authenticate()
             .sink { completion in
                 switch completion {
@@ -59,8 +77,7 @@ public class PhotoSDK {
                     onAuthenticated(.success(galleryView))
                 } else {
                     // Unexpected failure
-                    let error = NSError(domain: "PhotoSDK", code: -2, userInfo: [NSLocalizedDescriptionKey: "Authentication failed. Access denied."])
-                    onAuthenticated(.failure(error))
+                    onAuthenticated(.failure(AuthServiceError.unexpectedError))
                 }
             }
             .store(in: &cancellables)

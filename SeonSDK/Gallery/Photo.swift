@@ -7,8 +7,13 @@
 
 import UIKit.UIImage
 
-// Wrapper for UIImage to make it Identifiable
+/// `Photo` is a simple struct that wraps a `UIImage` to make it conform to the `Identifiable` protocol.
+/// This allows each photo to be uniquely identified in SwiftUI views, enabling seamless integration in lists and grids.
 struct Photo: Identifiable {
-    let id = UUID()  // Unique identifier
+    
+    /// A unique identifier for each `Photo` instance, generated automatically using `UUID`.
+    let id = UUID()
+    
+    /// The `UIImage` that this struct wraps, representing the photo to be displayed.
     let image: UIImage
 }
